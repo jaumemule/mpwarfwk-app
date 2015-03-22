@@ -5,7 +5,7 @@
 Clone this repository in a shared folder and then execute the this commandline:
 
 ```zsh
-$ git clone https://github.com/jaumemule/mpwarfwk.git frameworks
+$ git clone https://github.com/jaumemule/mpwarfwk-app.git frameworks
 
 ```
 
