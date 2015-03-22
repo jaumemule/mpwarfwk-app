@@ -1,0 +1,34 @@
+{
+    "404": {
+        "path": "Home",
+        "controller": "Home"
+    } ,
+    "": {
+        "path": "Login",
+        "controller": "Login"
+    } ,
+    "home": {
+        "path": "Home",
+        "controller": "Home"
+    } ,
+    "home/smarty": {
+        "path": "Home",
+        "controller": "HomeSmarty"
+    } ,
+    "login": {
+        "path": "Login",
+        "controller": "Login"
+    } ,
+    "logout": {
+        "path": "Login",
+        "controller": "Logout"
+    } ,
+    "register": {
+        "path": "Home",
+        "controller": "Register"
+    } ,
+    "documentation": {
+        "path": "Home",
+        "controller": "Documentation"
+    }
+}

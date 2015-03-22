@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MPWARFWK - Jaume Mulé </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../app/css/bootstrap.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../app/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../app/js/hover.zoom.js"></script>
+    <script src="../app/js/hover.zoom.conf.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">I'm MPWARFWK, Test me!</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/documentation">Documentation</a></li>
+            <li><a href="/home">Twig Template</a></li>
+            <li><a href="/home/smarty">Smarty Template</a></li>
+            <li><a href="/logout">Log out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="wasw">
+	    <div class="container" style="text-align:left">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<br>          
+
+			          <h3>Loading Controllers</h3>
+			          <p>
+			            Create a JSON configuration file on this format:
+			        	</p>
+			            <div>
+			            <code>
+			                 "url/somewhere": {
+						        "path": "pathtocontrollerfile",
+						        "controller": "controllername"
+						    }
+
+			            </code>
+			            </div>
+			            <br>
+			          <h3>Initiating your controller</h3>
+			          <p>
+			            Create a Controller with this name. Optionallity, your can use Request object
+			        	</p>
+			            <div>
+			            <code>
+			                public function ActionMain(Request $Request){
+
+			            </code>
+			            </div>
+
+
+			            <br>
+			          <h3>Requesting</h3>
+			          <p>
+			           	_GET
+						_POST
+						_SERVER
+						_FILES
+						_COOKIE
+			        	</p>
+			            <div>
+			            <code>
+			                $Request->_post->var;
+
+			            </code>
+			            </div>
+			            <div>
+			            <code>
+			                $Request->_get->var;
+
+			            </code>
+			            </div>
+			            <div>
+			            <code>
+			                $Request->_server->var;
+
+			            </code>
+			            </div>
+			            <div>
+			            <code>
+			                $Request->_files->var;
+
+			            </code>
+			            </div>
+			            <div>
+			            <code>
+			                $Request->_cookie->var;
+
+			            </code>
+			            </div>
+			            <br>
+			          <h3>Controlling Sessions</h3>
+			          <p>
+			            	Set your session:
+			        	</p>
+			            <div>
+			            <code>
+			                 $request->session->setValue( {var} );
+			            </code>
+			            </div><br>
+			          <p>
+			            	Get your session:
+			        	</p>
+			            <div>
+			            <code>
+			                 $request->session->getValue( {var} );
+			            </code>
+			            </div><br>
+			          <p>
+			            	Destroy your session:
+			        	</p>
+			            <div>
+			            <code>
+			                 $request->session->destroy( );
+			            </code>
+			            </div>
+			            <br>
+			          <h3>Using your Service Injector</h3>
+			          <p>
+			            Inject services in where you want. First of all, extend your Controller like
+			        	</p>
+			            <div>
+			            <code>
+			                class HomeSmarty extends BaseController{
+
+			            </code>
+			            </div>
+			            <br>
+			          <p>
+			            And next, use this for loading services. Just a test: 
+			        	</p>
+			            <div>
+			            <code>
+			                $this->container->get("SmartyTemplate");	//using an Smarty Template
+
+			            </code>
+			            </div>
+  			            <div>
+			            <code>
+			                $this->container->get("PDO");				//connecting to DB
+
+			            </code>
+			            </div>
+            			<div>
+			            <code>
+			                $this->container->get("TwigTemplate");		//using a Twig Template
+
+			            </code>
+			            </div>
+			            <br>
+          
+
+			          <h3>Configuring your Service Injector</h3>
+			          <p>
+			            Create services in where you want. You'll need to create a service.json file in your src/Config path. Example:
+			        	</p>
+			            <div>
+			            <code>
+						    "SmartyTemplate": { <br>
+						        "class": "Mpwarfwk\\Component\\Templating\\SmartyTemplate",<br>
+						        "arguments": ["Smarty"]<br>
+						    } ,
+			            </code>
+			            </div>
+			            <br>
+
+			          <h3>Configuring your Database Connection</h3>
+			          <p>
+			            Go to Mpwarfwk\\Component\\Model\\DBconnection and configure your credentials. <br>
+			            Yo will simply querying like this:
+			        	</p>
+			            <div>
+			            <code>
+
+			            	$this->connection 	= $this->container->get("PDO");<br><br>
+
+			            	$query = "SELECT * FROM users WHERE user = :user AND pass = :password";<br>
+
+					 	    $login = array('user' => $request->_post->user , 'password' => $request->_post->password); <br>
+		    				$checkUserCredentials = $this->connection->selectFromTable($query, $login);
+			            </code>
+			            </div>
+			            <br>
+
+			          <h3>Query Options</h3><br>
+			          <p>
+			          	Selecting all from table
+			        	</p>
+			            <div>
+			            <code>
+					 	   $DB->selectAllFromTable($table)
+			            </code>
+			            </div>
+			            <br>
+			          <p>
+			          	Selection something from table
+			        	</p>
+			            <div>
+			            <code>
+					 	   $DB->selectFromTable($query, $data)
+			            </code>
+			            </div>
+			            <br>
+			          <p>
+			          	Inserting in table
+			        	</p>
+			            <div>
+			            <code>
+					 	   $DB->insertInTable($query, $data)
+			            </code>
+			            </div>
+			            <br>
+			          <p>
+			          	Delete from table
+			        	</p>
+			            <div>
+			            <code>
+					 	   $DB->deleteFromTable($table, $id, $value)
+			            </code>
+			            </div>
+			            <br>
+			          <p>
+			          	Update something
+			        	</p>
+			            <div>
+			            <code>
+					 	   $DB->updateTable($query, $data)
+			            </code>
+			            </div>
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+  </body>
+</html>

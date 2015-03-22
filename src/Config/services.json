@@ -1,0 +1,19 @@
+{
+    "SmartyTemplate": {
+        "class": "Mpwarfwk\\Component\\Templating\\SmartyTemplate",
+        "arguments": ["Smarty"]
+    } ,
+    "TwigTemplate": {
+        "class": "Mpwarfwk\\Component\\Templating\\TwigTemplate",
+        "arguments": []
+    } ,
+    "request": {
+        "class": "Mpwarfwk\\Component\\Request\\Request",
+        "arguments": ["Mpwarfwk\\Component\\Session\\Session"]
+      
+    } ,
+    "PDO":{
+        "class": "Mpwarfwk\\Component\\Model\\PdoDatabase",
+        "arguments": ["Mpwarfwk\\Component\\Model\\DBconnection"]
+    }
+}
