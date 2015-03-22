@@ -4,8 +4,8 @@
         "controller": "Home"
     } ,
     "": {
-        "path": "Login",
-        "controller": "Login"
+        "path": "Home",
+        "controller": "Home"
     } ,
     "home": {
         "path": "Home",
