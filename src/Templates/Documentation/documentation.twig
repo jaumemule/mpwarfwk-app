@@ -256,11 +256,38 @@
 					 	   $DB->updateTable($query, $data)
 			            </code>
 			            </div>
+
+
+			          <h3>Response</h3><br>
+			          <p>
+			          	HTML Template Response (Twig / Smarty)
+			        	</p>
+			            <div>
+			            <code>
+							$view 	= 	$this->container->get("TwigTemplate");<br>
+							return new Response($view->render( "Login/homeTwig.twig", $ArrayVar ), {status_code}});
+						</code>
+			            </div>
+			            <br>
+			          <p>
+
+			          <h3>Response</h3><br>
+			          <p>
+			          	JSON Response
+			        	</p>
+			            <div>
+			            <code>
+							$Json = new JsonResponse($contten);<br>
+							$Json->send();
+			            </code>
+			            </div>
+			            <br>
+			          <p>
 				</div><!-- /col-lg-8 -->
 			</div><!-- /row -->
 	    </div> <!-- /container -->
 	</div><!-- /ww -->
-	
+
 	
   </body>
 </html>
